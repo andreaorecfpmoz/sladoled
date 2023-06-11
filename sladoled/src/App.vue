@@ -19,11 +19,6 @@
 
     <router-view />
 
-    <v-footer color="white" app>
-      <v-col class="text-center" cols="12">
-        ©2023 - Sladoledarnica
-      </v-col>
-    </v-footer>
   </v-app>
 </template>
 
