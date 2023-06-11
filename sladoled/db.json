@@ -1,0 +1,69 @@
+{
+    "okusi": [
+      {
+        "id": 1,
+        "name": "Vanilija",
+        "description": "Najpopularniji okus sladoleda, izrađen od mlijeka, šećera i prave vanilije.",
+        "ingredients": ["mlijeko", "šećer", "vanilijin ekstrakt"],
+        "recipe": "Pomiješajte sve sastojke i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/vanilija.png"
+      },
+      {
+        "id": 2,
+        "name": "Čokolada",
+        "description": "Bogat, sladak desert za sve ljubitelje čokolade.",
+        "ingredients": ["mlijeko", "šećer", "kakao prah"],
+        "recipe": "Pomiješajte sve sastojke, zagrijte dok se šećer ne otopi, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/cokolada.png"
+      },
+      {
+        "id": 3,
+        "name": "Jagoda",
+        "description": "Osvežavajući voćni okus, idealan za tople ljetne dane.",
+        "ingredients": ["mlijeko", "šećer", "jagode"],
+        "recipe": "Pomiješajte sastojke u blenderu, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/jagoda.png"
+      },
+      {
+        "id": 4,
+        "name": "Menta",
+        "description": "Osvežavajući okus mente savršen za vruće ljetne dane.",
+        "ingredients": ["mlijeko", "šećer", "ekstrakt mente"],
+        "recipe": "Pomiješajte sve sastojke, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/menta.png"
+      },
+      {
+        "id": 5,
+        "name": "Lubenica",
+        "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
+        "ingredients": ["mlijeko", "šećer", "sok od lubenice"],
+        "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/menta.png"
+      },
+      {
+        "id": 6,
+        "name": "Lubenica",
+        "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
+        "ingredients": ["mlijeko", "šećer", "sok od lubenice"],
+        "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/menta.png"
+      },
+      {
+        "id": 7,
+        "name": "Lubenica",
+        "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
+        "ingredients": ["mlijeko", "šećer", "sok od lubenice"],
+        "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/menta.png"
+      },
+      {
+        "id": 8,
+        "name": "Lubenica",
+        "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
+        "ingredients": ["mlijeko", "šećer", "sok od lubenice"],
+        "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+        "imageUrl": "/images/menta.png"
+      }
+    ]
+  }
+  
