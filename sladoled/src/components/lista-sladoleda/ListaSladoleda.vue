@@ -14,6 +14,9 @@
           filled
           color="indigo accent-4"
         ></v-text-field>
+        <v-btn color="pink" fab dark fixed bottom right @click="noviOkusModal = true">
+        <v-icon>mdi-plus</v-icon>Dodaj novi okus.
+      </v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -63,11 +66,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="pink" text @click="dodajOkus">
-              Dodaj
-            </v-btn>
-
-            <v-btn color="pink" text @click="urediOkuse(okus)">
+            <v-btn color="pink" text @click="urediOkusModal = true; urediOkus = okus">
               Uredi
             </v-btn>
 
@@ -80,7 +79,7 @@
     </v-row>
 
     <!-- Modal za dodavanje novog sladoleda -->
-    <v-dialog v-model="noviOkusModal" max-width="600px" return-value="false">
+    <v-dialog v-model="noviOkusModal" max-width="600px">
       <v-card>
         <v-card-title>
           <h2 class="text-h5 indigo--text">Dodaj novi sladoled</h2>
@@ -101,7 +100,7 @@
     </v-dialog>
 
     <!-- Modal za uređivanje sladoleda -->
-    <v-dialog v-model="urediOkusModal" max-width="600px" return-value="false">
+    <v-dialog v-model="urediOkusModal" max-width="600px">
       <v-card>
         <v-card-title>
           <h2 class="text-h5 indigo--text">Uredi sladoled</h2>
