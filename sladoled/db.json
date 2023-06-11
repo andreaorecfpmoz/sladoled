@@ -35,13 +35,6 @@
       ],
       "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
       "imageUrl": "/images/menta.png"
-    },
-    {
-      "name": "Vanilija",
-      "description": "Sladoled od vanilije",
-      "ingredients": "mlijeko, šećer, vanilija ekstrakt.",
-      "recipe": "Miješaj miješaj i zaledi",
-      "id": 6
     }
   ]
 }

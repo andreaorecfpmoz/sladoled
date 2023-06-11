@@ -160,10 +160,19 @@ export default {
         });
     },
     dodajOkus() {
+      const ingredients = this.noviOkus.ingredients.split(',').map((ingredient) => ingredient.trim());
+
+      const noviOkusObj = {
+        name: this.noviOkus.name,
+        description: this.noviOkus.description,
+        ingredients: ingredients,
+        recipe: this.noviOkus.recipe,
+      };
+
       axios
-        .post('http://localhost:3000/okusi', this.noviOkus)
+        .post('http://localhost:3000/okusi', noviOkusObj)
         .then(() => {
-          alert('Dodali ste novi okus: ' + this.noviOkus.name);
+          alert('Dodali ste novi okus: ' + noviOkusObj.name);
           this.noviOkus = {};
           this.dohvatiOkuse();
         })
@@ -171,11 +180,20 @@ export default {
           console.log(error);
         });
     },
-    urediOkuse() {
+  urediOkuse() {
+      const ingredients = this.urediOkus.ingredients.split(',').map((ingredient) => ingredient.trim());
+
+      const urediOkusObj = {
+        name: this.urediOkus.name,
+        description: this.urediOkus.description,
+        ingredients: ingredients,
+        recipe: this.urediOkus.recipe,
+      };
+
       axios
-        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
+        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, urediOkusObj)
         .then(() => {
-          alert('Uredili ste okus: ' + this.urediOkus.name);
+          alert('Uredili ste okus: ' + urediOkusObj.name);
           this.urediOkus = {}; // Clear the urediOkus object
           this.dohvatiOkuse();
         })
@@ -183,7 +201,7 @@ export default {
           console.log(error);
         });
     },
-    obrisiOkus(okus) {
+  obrisiOkus(okus) {
       axios
         .delete(`http://localhost:3000/okusi/${okus.id}`)
         .then(() => {
@@ -194,14 +212,14 @@ export default {
           console.log(error);
         });
     },
-    submitNoviOkus() {
+  submitNoviOkus() {
       if (this.$refs.noviOkusForm.validate()) {
         this.dodajOkus();
         this.noviOkusModal = false;
         this.$refs.noviOkusForm.reset();
       }
     },
-    submitUrediOkus() {
+  submitUrediOkus() {
       if (this.$refs.urediOkusForm.validate()) {
         this.urediOkuse();
         this.urediOkusModal = false;
