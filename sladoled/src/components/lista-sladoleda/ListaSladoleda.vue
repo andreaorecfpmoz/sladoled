@@ -53,12 +53,17 @@
           </v-card-item>
 
           <v-card-text>
-            <div>Sastojci: {{ okus.ingredients.join(', ') }}</div>
+            <div v-if="okus.ingredients && okus.ingredients.length > 0">
+              Sastojci: {{ okus.ingredients.join(', ') }}
+            </div>
+            <div v-else>
+              Sastojci: Nema dostupnih sastojaka.
+            </div>
             <div class="my-4 text-subtitle-1">Recept: {{ okus.recipe }}</div>
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="pink" text @click="this.noviOkusModal = true">
+            <v-btn color="pink" text @click="dodajOkus">
               Dodaj
             </v-btn>
 
@@ -74,14 +79,14 @@
       </v-col>
     </v-row>
 
-  <!-- Modal za dodavanje novog sladoleda -->
-  <v-dialog v-model="noviOkusModal" max-width="600px">
+    <!-- Modal za dodavanje novog sladoleda -->
+    <v-dialog v-model="noviOkusModal" max-width="600px" return-value="false">
       <v-card>
         <v-card-title>
           <h2 class="text-h5 indigo--text">Dodaj novi sladoled</h2>
         </v-card-title>
         <v-card-text>
-          <v-form @submit.prevent="dodajOkus">
+          <v-form ref="noviOkusForm" @submit.prevent="submitNoviOkus">
             <v-text-field v-model="noviOkus.name" label="Naziv" required></v-text-field>
             <v-text-field v-model="noviOkus.description" label="Opis" required></v-text-field>
             <v-textarea v-model="noviOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
@@ -90,19 +95,19 @@
         </v-card-text>
         <v-card-actions>
           <v-btn color="primary" text @click="noviOkusModal = false">Odustani</v-btn>
-          <v-btn color="primary" text @click="dodajOkus">Dodaj</v-btn>
+          <v-btn color="primary" text @click="submitNoviOkus">Dodaj</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
 
     <!-- Modal za uređivanje sladoleda -->
-    <v-dialog v-model="urediOkusModal" max-width="600px">
+    <v-dialog v-model="urediOkusModal" max-width="600px" return-value="false">
       <v-card>
         <v-card-title>
           <h2 class="text-h5 indigo--text">Uredi sladoled</h2>
         </v-card-title>
         <v-card-text>
-          <v-form @submit.prevent="urediOkus">
+          <v-form ref="urediOkusForm" @submit.prevent="submitUrediOkus">
             <v-text-field v-model="urediOkus.name" label="Naziv" required></v-text-field>
             <v-text-field v-model="urediOkus.description" label="Opis" required></v-text-field>
             <v-textarea v-model="urediOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
@@ -111,7 +116,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn color="primary" text @click="urediOkusModal = false">Odustani</v-btn>
-          <v-btn color="primary" text @click="urediOkuse">Spremi</v-btn>
+          <v-btn color="primary" text @click="submitUrediOkus">Spremi</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -161,7 +166,6 @@ export default {
         .then(() => {
           alert('Dodali ste novi okus: ' + this.noviOkus.name);
           this.noviOkus = {};
-          this.noviOkusModal = false;
           this.dohvatiOkuse();
         })
         .catch((error) => {
@@ -173,8 +177,7 @@ export default {
         .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
         .then(() => {
           alert('Uredili ste okus: ' + this.urediOkus.name);
-          this.urediOkus = {};
-          this.urediOkusModal = false;
+          this.urediOkus = {}; // Clear the urediOkus object
           this.dohvatiOkuse();
         })
         .catch((error) => {
@@ -191,6 +194,20 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    submitNoviOkus() {
+      if (this.$refs.noviOkusForm.validate()) {
+        this.dodajOkus();
+        this.noviOkusModal = false;
+        this.$refs.noviOkusForm.reset();
+      }
+    },
+    submitUrediOkus() {
+      if (this.$refs.urediOkusForm.validate()) {
+        this.urediOkuse();
+        this.urediOkusModal = false;
+        this.$refs.urediOkusForm.reset();
+      }
     },
   },
   watch: {
