@@ -29,7 +29,7 @@
     <v-row>
       <v-col v-for="okus in okusi" :key="okus.id" cols="12" sm="6" md="4">
         <v-card color="pink lighten-5" class="mb-4" style="height: 100%;">
-          <v-img :src="okus.imageUrl" :alt="okus.name" width="100px" height="100px" style="padding: 10px;"></v-img>
+          <v-img :src="okus.imageUrl" :alt="okus.name" width="100px" height="150px" style="padding: 10px;"></v-img>
           <v-card-title class="pink--text text--darken-4">{{ okus.name }}</v-card-title>
           <v-card-text class="grey--text text--darken-1">{{ okus.description }}</v-card-text>
           <v-card-text class="grey--text text--darken-1">Sastojci: {{ okus.ingredients.join(', ') }}</v-card-text>
