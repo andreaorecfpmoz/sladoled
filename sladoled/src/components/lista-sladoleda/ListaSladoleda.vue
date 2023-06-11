@@ -14,9 +14,9 @@
           filled
           color="indigo accent-4"
         ></v-text-field>
-        <v-btn color="pink" fab dark fixed bottom right @click="noviOkusModal = true">
-        <v-icon>mdi-plus</v-icon>Dodaj novi okus.
-      </v-btn>
+        <v-btn color="pink" fab dark fixed bottom right @click="openNewModal">
+          <v-icon>mdi-plus</v-icon>Dodaj novi okus.
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -66,7 +66,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="pink" text @click="urediOkusModal = true; urediOkus = okus">
+            <v-btn color="pink" text @click="openEditModal(okus)">
               Uredi
             </v-btn>
 
@@ -78,54 +78,36 @@
       </v-col>
     </v-row>
 
-    <!-- Modal za dodavanje novog sladoleda -->
-    <v-dialog v-model="noviOkusModal" max-width="600px">
-      <v-card>
-        <v-card-title>
-          <h2 class="text-h5 indigo--text">Dodaj novi sladoled</h2>
-        </v-card-title>
-        <v-card-text>
-          <v-form ref="noviOkusForm" @submit.prevent="submitNoviOkus">
-            <v-text-field v-model="noviOkus.name" label="Naziv" required></v-text-field>
-            <v-text-field v-model="noviOkus.description" label="Opis" required></v-text-field>
-            <v-textarea v-model="noviOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
-            <v-textarea v-model="noviOkus.recipe" label="Recept" required></v-textarea>
-          </v-form>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn color="primary" text @click="noviOkusModal = false">Odustani</v-btn>
-          <v-btn color="primary" text @click="submitNoviOkus">Dodaj</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+  <!-- Modal za dodavanje novog sladoleda -->
+  <uredi-dodaj-form
+    :modal-visible="noviOkusModal"
+    modal-title="Dodaj novi sladoled"
+    :form-values="noviOkus"
+    submit-button-text="Dodaj"
+    @submit="submitNoviOkus"
+    @close="noviOkusModal = false"
+  ></uredi-dodaj-form>
 
-    <!-- Modal za uređivanje sladoleda -->
-    <v-dialog v-model="urediOkusModal" max-width="600px">
-      <v-card>
-        <v-card-title>
-          <h2 class="text-h5 indigo--text">Uredi sladoled</h2>
-        </v-card-title>
-        <v-card-text>
-          <v-form ref="urediOkusForm" @submit.prevent="submitUrediOkus">
-            <v-text-field v-model="urediOkus.name" label="Naziv" required></v-text-field>
-            <v-text-field v-model="urediOkus.description" label="Opis" required></v-text-field>
-            <v-textarea v-model="urediOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
-            <v-textarea v-model="urediOkus.recipe" label="Recept" required></v-textarea>
-          </v-form>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn color="primary" text @click="urediOkusModal = false">Odustani</v-btn>
-          <v-btn color="primary" text @click="submitUrediOkus">Spremi</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+  <!-- Modal za uređivanje sladoleda -->
+  <uredi-dodaj-form
+    :modal-visible="urediOkusModal"
+    modal-title="Uredi sladoled"
+    :form-values="urediOkus"
+    submit-button-text="Spremi"
+    @submit="submitUrediOkus"
+    @close="urediOkusModal = false"
+  ></uredi-dodaj-form>
   </v-container>
 </template>
 
 <script>
 import axios from 'axios';
+import UrediDodajForm from '../forma/UrediDodajForm.vue';
 
 export default {
+  components: {
+    UrediDodajForm,
+  },
   data() {
     return {
       okusi: [],
@@ -145,7 +127,7 @@ export default {
     },
   },
   methods: {
-    dohvatiOkuse() {
+      dohvatiOkuse() {
       axios
         .get('http://localhost:3000/okusi', {
           params: {
@@ -155,24 +137,20 @@ export default {
           },
         })
         .then((response) => {
-          this.okusi = response.data;
+          this.okusi = response.data.map((okus) => {
+            if (typeof okus.ingredients === 'string') {
+              okus.ingredients = okus.ingredients.split(',').map((ingredient) => ingredient.trim());
+            }
+            return okus;
+          });
           this.ukupnoOkusa = parseInt(response.headers['x-total-count']);
         });
     },
     dodajOkus() {
-      const ingredients = this.noviOkus.ingredients.split(',').map((ingredient) => ingredient.trim());
-
-      const noviOkusObj = {
-        name: this.noviOkus.name,
-        description: this.noviOkus.description,
-        ingredients: ingredients,
-        recipe: this.noviOkus.recipe,
-      };
-
       axios
-        .post('http://localhost:3000/okusi', noviOkusObj)
+        .post('http://localhost:3000/okusi', this.noviOkus)
         .then(() => {
-          alert('Dodali ste novi okus: ' + noviOkusObj.name);
+          alert('Dodali ste novi okus: ' + this.noviOkus.name);
           this.noviOkus = {};
           this.dohvatiOkuse();
         })
@@ -180,28 +158,19 @@ export default {
           console.log(error);
         });
     },
-  urediOkuse() {
-      const ingredients = this.urediOkus.ingredients.split(',').map((ingredient) => ingredient.trim());
-
-      const urediOkusObj = {
-        name: this.urediOkus.name,
-        description: this.urediOkus.description,
-        ingredients: ingredients,
-        recipe: this.urediOkus.recipe,
-      };
-
+    urediOkuse() {
       axios
-        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, urediOkusObj)
+        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
         .then(() => {
-          alert('Uredili ste okus: ' + urediOkusObj.name);
-          this.urediOkus = {}; // Clear the urediOkus object
+          alert('Uredili ste okus: ' + this.urediOkus.name);
+          this.urediOkus = {};
           this.dohvatiOkuse();
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  obrisiOkus(okus) {
+    obrisiOkus(okus) {
       axios
         .delete(`http://localhost:3000/okusi/${okus.id}`)
         .then(() => {
@@ -212,19 +181,29 @@ export default {
           console.log(error);
         });
     },
-  submitNoviOkus() {
-      if (this.$refs.noviOkusForm.validate()) {
-        this.dodajOkus();
-        this.noviOkusModal = false;
-        this.$refs.noviOkusForm.reset();
-      }
+    submitNoviOkus(noviOkus) {
+      this.noviOkus = {
+        ...noviOkus,
+        ingredients: noviOkus.ingredients.split(',').map((ingredient) => ingredient.trim())
+      };
+      this.dodajOkus();
+      this.noviOkusModal = false;
     },
-  submitUrediOkus() {
-      if (this.$refs.urediOkusForm.validate()) {
-        this.urediOkuse();
-        this.urediOkusModal = false;
-        this.$refs.urediOkusForm.reset();
-      }
+    submitUrediOkus(urediOkus) {
+      this.urediOkus = {
+        ...urediOkus,
+        ingredients: urediOkus.ingredients.split(',').map((ingredient) => ingredient.trim())
+      };
+      this.urediOkuse();
+      this.urediOkusModal = false;
+    },
+    openNewModal() {
+      this.noviOkusModal = true;
+      this.noviOkus = {};
+    },
+    openEditModal(okus) {
+      this.urediOkusModal = true;
+      this.urediOkus = { ...okus };
     },
   },
   watch: {
