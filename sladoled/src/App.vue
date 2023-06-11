@@ -14,7 +14,7 @@
     </v-app-bar>
 
     <div class="banner">
-      <h1 class="banner-text">Dobrodošli na stranicu o sladoledima!</h1>
+      <h1 class="banner-text">Dobrodošli na stranicu posvećenu sladoledima!</h1>
     </div>
 
     <router-view />
