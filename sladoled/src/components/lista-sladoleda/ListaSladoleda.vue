@@ -28,15 +28,93 @@
     </v-row>
     <v-row>
       <v-col v-for="okus in okusi" :key="okus.id" cols="12" sm="6" md="4">
-        <v-card color="pink lighten-5" class="mb-4" style="height: 100%;">
-          <v-img :src="okus.imageUrl" :alt="okus.name" width="100px" height="150px" style="padding: 10px;"></v-img>
-          <v-card-title class="pink--text text--darken-4">{{ okus.name }}</v-card-title>
-          <v-card-text class="grey--text text--darken-1">{{ okus.description }}</v-card-text>
-          <v-card-text class="grey--text text--darken-1">Sastojci: {{ okus.ingredients.join(', ') }}</v-card-text>
-          <v-card-text class="grey--text text--darken-1">Recept: {{ okus.recipe }}</v-card-text>
+        <v-card class="mx-auto my-12" max-width="374">
+          <v-card-title class="white--text" style="background-color: pink">
+            <v-img
+              cover
+              height="100px"
+              width="100px"
+              :src="okus.imageUrl"
+              :alt="okus.name"
+              class="mx-auto my-2"
+            ></v-img>
+          </v-card-title>
+
+          <v-card-item>
+            <v-card-title>{{ okus.name }}</v-card-title>
+            <v-card-subtitle>
+              <v-icon
+                color="pink darken-4"
+                icon="mdi-ice-cream"
+                size="small"
+              ></v-icon>
+              {{ okus.description }}
+            </v-card-subtitle>
+          </v-card-item>
+
+          <v-card-text>
+            <div>Sastojci: {{ okus.ingredients.join(', ') }}</div>
+            <div class="my-4 text-subtitle-1">Recept: {{ okus.recipe }}</div>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn color="pink" text @click="this.noviOkusModal = true">
+              Dodaj
+            </v-btn>
+
+            <v-btn color="pink" text @click="urediOkuse(okus)">
+              Uredi
+            </v-btn>
+
+            <v-btn color="pink" text @click="obrisiOkus(okus)">
+              Obriši
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
+
+  <!-- Modal za dodavanje novog sladoleda -->
+  <v-dialog v-model="noviOkusModal" max-width="600px">
+      <v-card>
+        <v-card-title>
+          <h2 class="text-h5 indigo--text">Dodaj novi sladoled</h2>
+        </v-card-title>
+        <v-card-text>
+          <v-form @submit.prevent="dodajOkus">
+            <v-text-field v-model="noviOkus.name" label="Naziv" required></v-text-field>
+            <v-text-field v-model="noviOkus.description" label="Opis" required></v-text-field>
+            <v-textarea v-model="noviOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
+            <v-textarea v-model="noviOkus.recipe" label="Recept" required></v-textarea>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" text @click="noviOkusModal = false">Odustani</v-btn>
+          <v-btn color="primary" text @click="dodajOkus">Dodaj</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- Modal za uređivanje sladoleda -->
+    <v-dialog v-model="urediOkusModal" max-width="600px">
+      <v-card>
+        <v-card-title>
+          <h2 class="text-h5 indigo--text">Uredi sladoled</h2>
+        </v-card-title>
+        <v-card-text>
+          <v-form @submit.prevent="urediOkus">
+            <v-text-field v-model="urediOkus.name" label="Naziv" required></v-text-field>
+            <v-text-field v-model="urediOkus.description" label="Opis" required></v-text-field>
+            <v-textarea v-model="urediOkus.ingredients" label="Sastojci (odvojeni zarezom)" required></v-textarea>
+            <v-textarea v-model="urediOkus.recipe" label="Recept" required></v-textarea>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" text @click="urediOkusModal = false">Odustani</v-btn>
+          <v-btn color="primary" text @click="urediOkuse">Spremi</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -50,13 +128,17 @@ export default {
       pretraga: '',
       stranica: 1,
       limit: 6,
-      ukupnoOkusa: 0
-    }
+      ukupnoOkusa: 0,
+      noviOkus: {},
+      urediOkus: {},
+      noviOkusModal: false,
+      urediOkusModal: false,
+    };
   },
   computed: {
     ukupnoStranica() {
       return Math.ceil(this.ukupnoOkusa / this.limit);
-    }
+    },
   },
   methods: {
     dohvatiOkuse() {
@@ -65,14 +147,51 @@ export default {
           params: {
             _page: this.stranica,
             _limit: this.limit,
-            q: this.pretraga
-          }
+            q: this.pretraga,
+          },
         })
-        .then(response => {
+        .then((response) => {
           this.okusi = response.data;
           this.ukupnoOkusa = parseInt(response.headers['x-total-count']);
         });
-    }
+    },
+    dodajOkus() {
+      axios
+        .post('http://localhost:3000/okusi', this.noviOkus)
+        .then(() => {
+          alert('Dodali ste novi okus: ' + this.noviOkus.name);
+          this.noviOkus = {};
+          this.noviOkusModal = false;
+          this.dohvatiOkuse();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    urediOkuse() {
+      axios
+        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
+        .then(() => {
+          alert('Uredili ste okus: ' + this.urediOkus.name);
+          this.urediOkus = {};
+          this.urediOkusModal = false;
+          this.dohvatiOkuse();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    obrisiOkus(okus) {
+      axios
+        .delete(`http://localhost:3000/okusi/${okus.id}`)
+        .then(() => {
+          alert('Obrisali ste okus: ' + okus.name);
+          this.dohvatiOkuse();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   watch: {
     stranica() {
@@ -80,15 +199,13 @@ export default {
     },
     pretraga() {
       this.dohvatiOkuse();
-    }
+    },
   },
   created() {
     this.dohvatiOkuse();
-  }
+  },
 };
 </script>
-
-
 
 <style scoped>
 .v-card__title,
@@ -102,5 +219,9 @@ export default {
 
 .v-col {
   padding-right: 8px; /* Dodaje razmak između stupaca */
+}
+
+.v-img {
+  margin: auto; /* Centrira sliku */
 }
 </style>
