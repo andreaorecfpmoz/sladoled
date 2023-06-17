@@ -20,6 +20,13 @@
       </v-col>
     </v-row>
     <v-row>
+      <v-col>
+          <v-alert v-model="prikaziAlert" :type="alertTip" closable>
+                  {{ alertPoruka }}
+          </v-alert>
+      </v-col>
+    </v-row>
+    <v-row>
       <v-col cols="12">
         <v-pagination
           v-model="stranica"
@@ -33,28 +40,19 @@
       <v-col v-for="okus in okusi" :key="okus.id" cols="12" sm="6" md="4">
         <v-card class="mx-auto my-12" max-width="374">
           <v-card-title class="white--text" style="background-color: pink">
-            <v-img
-              cover
-              height="100px"
-              width="100px"
-              :src="okus.imageUrl"
-              :alt="okus.name"
-              class="mx-auto my-2"
-            ></v-img>
+            <v-icon
+                color="pink"
+                icon="mdi-ice-cream"
+                size="x-large"
+              ></v-icon>
           </v-card-title>
 
           <v-card-item>
             <v-card-title>{{ okus.name }}</v-card-title>
             <v-card-subtitle>
-              <v-icon
-                color="pink darken-4"
-                icon="mdi-ice-cream"
-                size="small"
-              ></v-icon>
               {{ okus.description }}
             </v-card-subtitle>
           </v-card-item>
-
           <v-card-text>
             <div v-if="okus.ingredients && okus.ingredients.length > 0">
               Sastojci: {{ okus.ingredients.join(', ') }}
@@ -110,6 +108,9 @@ export default {
   },
   data() {
     return {
+      prikaziAlert: false,
+      alertPoruka: '',
+      alertTip: 'success',
       okusi: [],
       pretraga: '',
       stranica: 1,
@@ -150,11 +151,16 @@ export default {
       axios
         .post('http://localhost:3000/okusi', this.noviOkus)
         .then(() => {
-          alert('Dodali ste novi okus: ' + this.noviOkus.name);
+          this.alertPoruka = 'Dodali ste novi okus: ' + this.noviOkus.name;
+          this.alertTip = 'success';
+          this.prikaziAlert = true;
           this.noviOkus = {};
           this.dohvatiOkuse();
         })
         .catch((error) => {
+          this.alertPoruka = 'Došlo je do greške';
+          this.alertTip = 'error';
+          this.prikaziAlert = true;
           console.log(error);
         });
     },
@@ -162,11 +168,17 @@ export default {
       axios
         .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
         .then(() => {
-          alert('Uredili ste okus: ' + this.urediOkus.name);
+          this.alertPoruka = 'Uredili ste okus: ' + this.urediOkus.name;
+          this.alertTip = 'info';
+          this.prikaziAlert = true;
+          this.noviOkus = {};
           this.urediOkus = {};
           this.dohvatiOkuse();
         })
         .catch((error) => {
+          this.alertPoruka = 'Došlo je do greške';
+          this.alertTip = 'error';
+          this.prikaziAlert = true;
           console.log(error);
         });
     },
@@ -174,10 +186,15 @@ export default {
       axios
         .delete(`http://localhost:3000/okusi/${okus.id}`)
         .then(() => {
-          alert('Obrisali ste okus: ' + okus.name);
+          this.alertPoruka = 'Obrisali ste okus: ' + okus.name;
+          this.alertTip = 'warning';
+          this.prikaziAlert = true;
           this.dohvatiOkuse();
         })
         .catch((error) => {
+          this.alertPoruka = 'Došlo je do greške';
+          this.alertTip = 'error';
+          this.prikaziAlert = true;
           console.log(error);
         });
     },

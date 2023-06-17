@@ -13,52 +13,13 @@
       "imageUrl": "/images/menta.png"
     },
     {
-      "id": 7,
-      "name": "Lubenica",
-      "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "sok od lubenice"
-      ],
-      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
-      "id": 8,
-      "name": "Lubenica",
-      "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "sok od lubenice"
-      ],
-      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
-      "id": 9,
-      "name": "Lubenica4",
-      "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "sok od lubenicej",
-        "h"
-      ],
-      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
       "name": "jagoda",
-      "description": "jafodu",
+      "description": "test",
       "ingredients": [
-        "ja",
-        "ja",
-        "ja"
+        "twest"
       ],
-      "recipe": "hnsfdhunsu",
-      "id": 10
+      "recipe": "test",
+      "id": 7
     }
   ]
 }

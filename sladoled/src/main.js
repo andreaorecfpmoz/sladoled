@@ -7,6 +7,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import ListaSladoleda from './components/lista-sladoleda/ListaSladoleda.vue'
 import LandingPage from './views/LandingPage.vue'
+import '@mdi/font/css/materialdesignicons.css'
 
 const routes = [
   { path: '/', component: LandingPage },

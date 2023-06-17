@@ -10,8 +10,11 @@
     "dev": "concurrently \"npm run serve\" \"npm run mock-api\""
   },
   "dependencies": {
+    "@mdi/font": "^7.2.96",
+    "@mdi/js": "^7.2.96",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
+    "material-design-icons-iconfont": "^6.7.0",
     "vue": "^3.2.13",
     "vue-router": "^4.2.2",
     "vuetify": "^3.3.3"
