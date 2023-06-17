@@ -1,44 +1,6 @@
 {
   "okusi": [
     {
-      "id": 2,
-      "name": "Čokolada",
-      "description": "Bogat, sladak desert za sve ljubitelje čokolade.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "kakao prah",
-        "test",
-        "test2"
-      ],
-      "recipe": "Pomiješajte sve sastojke, zagrijte dok se šećer ne otopi, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/cokolada.png"
-    },
-    {
-      "id": 4,
-      "name": "Menta",
-      "description": "Osvežavajući okus mente savršen za vruće ljetne dane.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "ekstrakt mente"
-      ],
-      "recipe": "Pomiješajte sve sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
-      "id": 5,
-      "name": "Lubenica",
-      "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "sok od lubenice"
-      ],
-      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
       "id": 6,
       "name": "Lubenica",
       "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
@@ -76,12 +38,13 @@
     },
     {
       "id": 9,
-      "name": "Lubenica",
+      "name": "Lubenica4",
       "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
       "ingredients": [
         "mlijeko",
         "šećer",
-        "sok od lubenice"
+        "sok od lubenicej",
+        "h"
       ],
       "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
       "imageUrl": "/images/menta.png"
