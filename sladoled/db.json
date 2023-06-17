@@ -1,18 +1,6 @@
 {
   "okusi": [
     {
-      "id": 6,
-      "name": "Lubenica",
-      "description": "Slatki i osvježavajući okus ljeta u obliku sladoleda.",
-      "ingredients": [
-        "mlijeko",
-        "šećer",
-        "sok od lubenice"
-      ],
-      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
-      "imageUrl": "/images/menta.png"
-    },
-    {
       "name": "jagoda",
       "description": "test",
       "ingredients": [
@@ -20,6 +8,69 @@
       ],
       "recipe": "test",
       "id": 7
+    },
+    {
+      "name": "kokos",
+      "description": "kokos",
+      "ingredients": [
+        "kokos"
+      ],
+      "recipe": "kokos",
+      "id": 8
+    },
+    {
+      "name": "menta",
+      "description": "menta",
+      "ingredients": [
+        "menta"
+      ],
+      "recipe": "menta",
+      "id": 9
+    },
+    {
+      "name": "lubenica",
+      "description": "lubenica",
+      "ingredients": [
+        "lubenica"
+      ],
+      "recipe": "lubenica",
+      "id": 10
+    },
+    {
+      "name": "vanilija",
+      "description": "vanilija",
+      "ingredients": [
+        "vanilija"
+      ],
+      "recipe": "vanilija",
+      "id": 11
+    },
+    {
+      "name": "čokolada",
+      "description": "čokolada",
+      "ingredients": [
+        "čokolada"
+      ],
+      "recipe": "čokolada",
+      "id": 12
+    },
+    {
+      "name": "limun",
+      "description": "limun",
+      "ingredients": [
+        "limun"
+      ],
+      "recipe": "limun",
+      "id": 13
+    },
+    {
+      "name": "jogurt",
+      "description": "jogurt",
+      "ingredients": [
+        "jogurt"
+      ],
+      "recipe": "jogurt",
+      "id": 14
     }
   ]
 }
