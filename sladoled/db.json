@@ -1,15 +1,6 @@
 {
   "okusi": [
     {
-      "name": "jagoda",
-      "description": "test",
-      "ingredients": [
-        "twest"
-      ],
-      "recipe": "test",
-      "id": 7
-    },
-    {
       "name": "kokos",
       "description": "kokos",
       "ingredients": [
@@ -62,15 +53,6 @@
       ],
       "recipe": "limun",
       "id": 13
-    },
-    {
-      "name": "jogurt",
-      "description": "jogurt",
-      "ingredients": [
-        "jogurt"
-      ],
-      "recipe": "jogurt",
-      "id": 14
     }
   ]
 }
