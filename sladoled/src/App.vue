@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar color="white" dark app>
       <v-toolbar-title>
-        Sladoledarnica
+        <v-icon>mdi-ice-cream</v-icon>Sladoledarnica
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn to="/">
