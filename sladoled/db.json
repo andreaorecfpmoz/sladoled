@@ -66,6 +66,15 @@
       ],
       "recipe": "kekse istuci,dodati mlijeko ,secer,ž",
       "id": 14
+    },
+    {
+      "name": "pistacio",
+      "description": "pistacio",
+      "ingredients": [
+        "pistacio"
+      ],
+      "recipe": "pistacio",
+      "id": 15
     }
   ]
 }
