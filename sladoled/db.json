@@ -13,15 +13,6 @@
       "imageUrl": "/images/menta.png"
     },
     {
-      "name": "jagoda",
-      "description": "test",
-      "ingredients": [
-        "twest"
-      ],
-      "recipe": "test",
-      "id": 7
-    },
-    {
       "name": "Čokolada",
       "description": "Čokoladna bomba",
       "ingredients": [
@@ -31,6 +22,108 @@
       ],
       "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
       "id": 8
+    },
+    {
+      "name": "Vanilija",
+      "description": "Klasični, i jedan od najboljih",
+      "ingredients": [
+        "mlijeko",
+        "slatko vrhnje",
+        "žumanjak",
+        "šećer",
+        "1 mahuna vanilije"
+      ],
+      "recipe": "Recept: Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+      "id": 11
+    },
+    {
+      "name": "Lješnjak",
+      "description": "Osvježavajući sladoled",
+      "ingredients": [
+        "150 g lješnjaka",
+        "300 ml punomasnog mlijeka",
+        "250 ml svježeg slatkog vrhnja",
+        "1 cijelo jaje",
+        "2 žumanjka"
+      ],
+      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladolede.",
+      "id": 12
+    },
+    {
+      "name": "Oreo",
+      "description": "Ukusni i osvježavajući sladoled.",
+      "ingredients": [
+        "16 komada orea",
+        "500ml slatke pavlake",
+        "400g slatke pavlake",
+        "150g kristal šećera"
+      ],
+      "recipe": "Izmiksajte sastojke, ohladite i zamrznite u mašini za sladoled.",
+      "id": 13
+    },
+    {
+      "name": "Pistacio",
+      "ingredients": [
+        "500 g mliječnog vrhnja za šlag",
+        "400 g (1 konzerva) zaslađenog kondenziranog mlijeka",
+        "100 g pistacija",
+        "najbolje neslanih (oko 200 g u ljusci)"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "description": "Slatki i osvježavajući okus ljeta",
+      "id": 14
+    },
+    {
+      "name": "Kava",
+      "description": "Osvježavajući desert za sve ljubitelje kave.",
+      "ingredients": [
+        "2 šalice slatkog vrhnja",
+        "2 šalice mlijeka",
+        "¾ šalice šećera",
+        "2 žlice kave",
+        "6 žumanjaka",
+        "1 čajna žlica ekstrakta vanilije"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 15
+    },
+    {
+      "name": "Orah",
+      "description": "Ukusan i osvježavajući desert",
+      "ingredients": [
+        "10 dkg mljevenih oraha",
+        "4 žumanjka",
+        "2 bjelanjka",
+        "6 žlica šećera",
+        "3 dl tučenog slatkog vrhnja"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 16
+    },
+    {
+      "name": "Nutella",
+      "description": "Za sve ljubitelje Nuttele.",
+      "ingredients": [
+        "1 L. vrhnja za šlag",
+        "400 gr. kiselog vrhnja 25 % m.m.",
+        "400 gr. nutelle",
+        "200 gr. šećera u prahu"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 17
+    },
+    {
+      "name": "Banana",
+      "description": "Osvježavajući sladoled.",
+      "ingredients": [
+        "3 velike zamrznute banane (nasjeckane na kolutiće)",
+        "60 g grčkog",
+        "jogurta",
+        "1 čajna žličica ekstrakta vanilije",
+        "2 jušne žlice meda."
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 18
     }
   ]
 }
