@@ -13,7 +13,9 @@
       "name": "menta",
       "description": "menta",
       "ingredients": [
-        "menta"
+        "menta",
+        "mlijeko",
+        "secer"
       ],
       "recipe": "menta",
       "id": 9
@@ -53,6 +55,17 @@
       ],
       "recipe": "limun",
       "id": 13
+    },
+    {
+      "name": "Keks",
+      "description": "sladoled s komadicima keksa",
+      "ingredients": [
+        "jaja",
+        "mlijeko",
+        "keks"
+      ],
+      "recipe": "kekse istuci,dodati mlijeko ,secer,ž",
+      "id": 14
     }
   ]
 }
