@@ -130,7 +130,7 @@ export default {
   methods: {
       dohvatiOkuse() {
       axios
-        .get('http://localhost:3000/okusi', {
+        .get('https://grizzly-first-clave.glitch.me/okusi', {
           params: {
             _page: this.stranica,
             _limit: this.limit,
@@ -149,7 +149,7 @@ export default {
     },
     dodajOkus() {
       axios
-        .post('http://localhost:3000/okusi', this.noviOkus)
+        .post('https://grizzly-first-clave.glitch.me/okusi', this.noviOkus)
         .then(() => {
           this.alertPoruka = 'Dodali ste novi okus: ' + this.noviOkus.name;
           this.alertTip = 'success';
@@ -166,7 +166,7 @@ export default {
     },
     urediOkuse() {
       axios
-        .put(`http://localhost:3000/okusi/${this.urediOkus.id}`, this.urediOkus)
+        .put(`https://grizzly-first-clave.glitch.me/okusi/${this.urediOkus.id}`, this.urediOkus)
         .then(() => {
           this.alertPoruka = 'Uredili ste okus: ' + this.urediOkus.name;
           this.alertTip = 'info';
@@ -184,7 +184,7 @@ export default {
     },
     obrisiOkus(okus) {
       axios
-        .delete(`http://localhost:3000/okusi/${okus.id}`)
+        .delete(`https://grizzly-first-clave.glitch.me/okusi/${okus.id}`)
         .then(() => {
           this.alertPoruka = 'Obrisali ste okus: ' + okus.name;
           this.alertTip = 'warning';
