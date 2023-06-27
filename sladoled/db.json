@@ -1,139 +1,80 @@
 {
   "okusi": [
-
     {
-
       "name": "kokos",
-
       "description": "kokos",
-
       "ingredients": [
-
         "kokos"
-
       ],
-
       "recipe": "kokos",
-
       "id": 8
-
     },
-
     {
-
       "name": "menta",
-
       "description": "menta",
-
       "ingredients": [
-
         "menta",
-
         "mlijeko",
-
         "secer"
-
       ],
-
       "recipe": "menta",
-
       "id": 9
-
     },
-
     {
-
       "name": "lubenica",
-
       "description": "lubenica",
-
       "ingredients": [
-
         "lubenica"
-
       ],
-
       "recipe": "lubenica",
-
       "id": 10
-
     },
-
     {
-
       "name": "vanilija",
-
       "description": "vanilija",
-
       "ingredients": [
-
         "vanilija"
-
       ],
-
       "recipe": "vanilija",
-
       "id": 11
-
     },
-
     {
-
       "name": "čokolada",
-
       "description": "čokolada",
-
       "ingredients": [
-
         "čokolada"
-
       ],
-
       "recipe": "čokolada",
-
       "id": 12
-
     },
-
     {
-
       "name": "limun",
-
       "description": "limun",
-
       "ingredients": [
-
         "limun"
-
       ],
-
       "recipe": "limun",
-
       "id": 13
-
     },
-
     {
-
       "name": "Keks",
-
       "description": "sladoled s komadicima keksa",
-
       "ingredients": [
-
         "jaja",
-
         "mlijeko",
-
         "keks"
-
       ],
-
       "recipe": "kekse istuci,dodati mlijeko ,secer,ž",
-
       "id": 14
-
+    },
+    {
+      "name": "pistacio",
+      "description": "pistacio",
+      "ingredients": [
+        "pistacio"
+      ],
+      "recipe": "pistacio",
+      "id": 15
     }
-
   ]
 }
