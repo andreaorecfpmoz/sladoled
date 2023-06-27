@@ -75,6 +75,163 @@
       ],
       "recipe": "pistacio",
       "id": 15
+    },
+    {
+      "name": "šumsko voće",
+      "description": "šumsko voće",
+      "ingredients": [
+        "jogurt",
+        "šumsko voće",
+        "med",
+        "mlijeko",
+        "šećer"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 16
+    },
+    {
+      "name": "Lješnjak",
+      "description": "Osvježavajući sladoled",
+      "ingredients": [
+        "lješnjaci",
+        "mlijeko",
+        "slatko vrhnje",
+        "jaja"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 17
+    },
+    {
+      "name": "Jogurt-višnja",
+      "description": "Osvježavajući i lagan",
+      "ingredients": [
+        "jogurt",
+        "šećer",
+        "šlag u prahu",
+        "višnja"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 18
+    },
+    {
+      "name": "malina",
+      "description": "Osvježavajući i lagan",
+      "ingredients": [
+        "malina",
+        "šećer",
+        "kiselo vrhnje",
+        "vrhnje za šlag"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 19
+    },
+    {
+      "name": "Rafaelo",
+      "description": "Lagani desert",
+      "ingredients": [
+        "vrhnje",
+        "jaja",
+        "kokos",
+        "rum",
+        "vanilija",
+        "kremfiks"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 20
+    },
+    {
+      "name": "Ferrero",
+      "description": "Osvježavajuć",
+      "ingredients": [
+        "Nutella",
+        "mlijeko",
+        "kakao",
+        "šlag pjena"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 21
+    },
+    {
+      "name": "Cheesecake",
+      "description": "Lagan i osvježavajući",
+      "ingredients": [
+        "slatko vrhnje",
+        "šećer",
+        "jaja",
+        "krem sir",
+        "limun",
+        "vanilija šećer",
+        "keks"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 22
+    },
+    {
+      "name": "Bounty ",
+      "description": "Lagan i osvježavajući",
+      "ingredients": [
+        "kokosovo brašno",
+        "kokosovo mlijeko",
+        "mlijeko",
+        "šećer",
+        "čokolada",
+        "maslac"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 23
+    },
+    {
+      "name": "Snickers",
+      "description": "Osvježavajući i lagan",
+      "ingredients": [
+        "Čokolada",
+        "jaja",
+        "šećer",
+        "vanilin šećer",
+        "vrhnje za šlag",
+        "sol"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 24
+    },
+    {
+      "name": "Twix",
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "ingredients": [
+        "čokolada",
+        "mlijeko",
+        "šećer",
+        "kikiriki"
+      ],
+      "description": "Lagan i osvježavajući",
+      "id": 25
+    },
+    {
+      "name": "Kinder",
+      "description": "Lagan i osvježavajući",
+      "ingredients": [
+        "mlijeko",
+        "šećer u prahu",
+        "čokolada",
+        "vrhnje za šlag",
+        "kinder čokoladice"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 26
+    },
+    {
+      "name": "Kinder Bueno",
+      "description": "Lagan i osvježavajući",
+      "ingredients": [
+        "mlijeko",
+        "slatko vrhnje",
+        "šećer",
+        "žumanjak",
+        "2 paketa Kinder Buena",
+        "lješnjak"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 27
     }
   ]
 }
