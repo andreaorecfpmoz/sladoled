@@ -20,6 +20,17 @@
       ],
       "recipe": "test",
       "id": 7
+    },
+    {
+      "name": "Čokolada",
+      "description": "Čokoladna bomba",
+      "ingredients": [
+        "mlijeko",
+        "šećer",
+        "čokolada"
+      ],
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
+      "id": 8
     }
   ]
 }
