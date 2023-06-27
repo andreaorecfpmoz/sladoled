@@ -10,14 +10,15 @@
       "id": 8
     },
     {
-      "name": "menta",
-      "description": "menta",
+      "name": "Menta",
+      "description": "Lagan i osvježavajuć",
       "ingredients": [
         "menta",
         "mlijeko",
-        "secer"
+        "secer",
+        "jaje"
       ],
-      "recipe": "menta",
+      "recipe": "Izmiksajte sastojke, dodajte u kalupe i spremite u hladnjak.",
       "id": 9
     },
     {
